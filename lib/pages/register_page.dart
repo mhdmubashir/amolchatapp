@@ -1,3 +1,4 @@
+import 'package:amolchat/auth/auth_service.dart';
 import 'package:amolchat/components/my_button.dart';
 import 'package:amolchat/components/my_textfield.dart';
 import 'package:flutter/material.dart';
@@ -6,7 +7,7 @@ class RegisterPage extends StatelessWidget {
   // email controllers and password controllers
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _pwController = TextEditingController();
-  final TextEditingController _confirmController = TextEditingController();
+  final TextEditingController _confirmPwController = TextEditingController();
 
   //tap to go to the regster page
   final void Function()? onTap;
@@ -14,8 +15,36 @@ class RegisterPage extends StatelessWidget {
   RegisterPage({super.key, required this.onTap});
 
   // registration method
-  void register() {
-    // Implement registration logic here
+  void register(BuildContext context) {
+    //auth servicee get
+    final _auth = AuthService();
+
+// passwords match -> crate user
+
+    if (_pwController.text == _confirmPwController.text) {
+      try {
+        _auth.signUpWithEmailPassword(
+          _emailController.text,
+          _pwController.text,
+        );
+      } catch (e) {
+        showDialog(
+          context: context,
+          builder: (context) => AlertDialog(
+            title: Text(e.toString()),
+          ),
+        );
+      }
+    }
+    //pass dosnt match _> error kaniku user fix chy
+    else {
+      showDialog(
+        context: context,
+        builder: (context) => const AlertDialog(
+          title: Text("Password dosnt match"),
+        ),
+      );
+    }
   }
 
   @override
@@ -61,13 +90,13 @@ class RegisterPage extends StatelessWidget {
               MyTextField(
                 hintText: "Confirm Password",
                 obscureText: true,
-                controller: _confirmController,
+                controller: _confirmPwController,
               ),
               const SizedBox(height: 25),
               // registration button
               MyButton(
                 text: "Register",
-                onTap: register,
+                onTap: () => register(context),
               ),
               const SizedBox(height: 25),
               // already have an account
