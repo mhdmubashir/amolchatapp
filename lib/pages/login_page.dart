@@ -1,3 +1,4 @@
+import 'package:amolchat/auth/auth_service.dart';
 import 'package:amolchat/components/my_button.dart';
 import 'package:amolchat/components/my_textfield.dart';
 import 'package:flutter/material.dart';
@@ -14,8 +15,25 @@ class LoginPage extends StatelessWidget {
   LoginPage({Key? key, required this.onTap}) : super(key: key);
 
   // Login method (implementation will depend on your authentication logic)
-  void login() {
-    // Add your login logic here, using the values from _emailController and _pwController
+  void login(BuildContext context) async {
+    //auth srvc
+    final authService = AuthService();
+
+    //trrylogin
+    try {
+      await authService.signInWithEmailPassword(
+          _emailController.text, _pwController.text);
+    }
+
+    //errorr
+    catch (e) {
+      showDialog(
+        context: context,
+        builder: (context) => AlertDialog(
+          title: Text(e.toString()),
+        ),
+      );
+    }
   }
 
   @override
@@ -57,7 +75,8 @@ class LoginPage extends StatelessWidget {
               const SizedBox(height: 25),
               MyButton(
                 text: "Login",
-                onTap: login, // Call the login method when tapped
+                onTap: () =>
+                    login(context), // Call the login method when tapped
               ),
               const SizedBox(height: 25),
               Row(
