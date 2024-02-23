@@ -1,6 +1,6 @@
-import 'package:amolchat/auth/auth_service.dart';
 import 'package:amolchat/components/my_button.dart';
 import 'package:amolchat/components/my_textfield.dart';
+import 'package:amolchat/services/auth/auth_service.dart';
 import 'package:flutter/material.dart';
 
 class LoginPage extends StatelessWidget {

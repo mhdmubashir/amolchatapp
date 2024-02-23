@@ -1,5 +1,5 @@
-import 'package:amolchat/auth/login_or_register.dart';
 import 'package:amolchat/pages/home_page.dart';
+import 'package:amolchat/services/auth/login_or_register.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 

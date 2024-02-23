@@ -1,5 +1,5 @@
-import 'package:amolchat/auth/auth_gate.dart';
 import 'package:amolchat/firebase_options.dart';
+import 'package:amolchat/services/auth/auth_gate.dart';
 import 'package:amolchat/themes/light_mode.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
