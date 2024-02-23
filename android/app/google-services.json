@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "228693205993",
+    "project_id": "amolchatapp",
+    "storage_bucket": "amolchatapp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:228693205993:android:0424d52831395a4455e178",
+        "android_client_info": {
+          "package_name": "com.example.amolchat"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAk6hv98I7EhQ2WEINASacpjuCX6d8goSI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
