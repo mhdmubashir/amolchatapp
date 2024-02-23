@@ -1,4 +1,4 @@
-import 'package:amolchat/auth/login_or_register.dart';
+import 'package:amolchat/auth/auth_gate.dart';
 import 'package:amolchat/firebase_options.dart';
 import 'package:amolchat/themes/light_mode.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: LoginOrRegister(),
+      home: const AuthGate(),
       theme: lightMode,
     );
   }
